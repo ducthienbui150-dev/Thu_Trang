@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi Thu Trang ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+            overflow: hidden;
+        }
+
+        .card {
+            width: 80%;
+            max-width: 500px;
+            padding: 40px 25px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 25px;
+            box-shadow: 0 10px 35px rgba(255, 80, 140, 0.25);
+            animation: appear 1.5s ease;
+        }
+
+        h1 {
+            color: #ff4081;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .heart {
+            font-size: 55px;
+            animation: heartbeat 1s infinite;
+        }
+
+        p {
+            color: #ad1457;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        .signature {
+            margin-top: 25px;
+            color: #ff4081;
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -30px;
+            color: #ff69b4;
+            font-size: 24px;
+            animation: float 6s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            20% { opacity: 1; }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="heart">❤️</div>
+
+        <h1>Chúc Thu Trang 20/10 💖</h1>
+
+        <p>
+            Chúc Thu Trang ngày 20/10 thật hạnh phúc.
+            Luôn luôn xinh tươi, rạng rỡ, bình an
+            và sớm đạt được mọi ước mơ của mình. 🌷
+        </p>
+
+        <p>
+            Mong rằng mỗi ngày của bạn đều ngập tràn
+            niềm vui và tiếng cười 💕
+        </p>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "floating-heart";
+            heart.innerHTML = Math.random() > 0.5 ? "❤️" : "💕";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration =
+                (4 + Math.random() * 4) + "s";
+            heart.style.fontSize =
+                (15 + Math.random() * 20) + "px";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        setInterval(createHeart, 400);
+    </script>
+</body>
+</html>
